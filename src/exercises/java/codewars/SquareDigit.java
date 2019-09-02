@@ -1,7 +1,7 @@
-package exercises.java;
+package exercises.java.codewars;
 
 
-public class Codewars {
+public class SquareDigit {
 
     public static void main(String[] args) {
 
