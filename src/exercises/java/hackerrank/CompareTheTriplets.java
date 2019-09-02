@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Compare_the_Triplets {
+public class CompareTheTriplets {
 
     // compare results of two game players
 

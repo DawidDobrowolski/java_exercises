@@ -1,6 +1,5 @@
 package exercises.java;
 
-import javafx.scene.web.HTMLEditorSkin;
 
 import java.util.Scanner;
 
