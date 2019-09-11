@@ -24,8 +24,7 @@ public class SockMerchant {
                 counterPairs += counter/2;
             }
         }
-        System.out.println(Arrays.toString(ar));
-        System.out.println(counterPairs);
+
         return counterPairs;
     }
 
