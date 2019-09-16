@@ -26,8 +26,6 @@ public class BracketsControl {
         }
     }
 
-
-
     public static void main(String[] args) {
 
         System.out.println("Please enter expression to check");
