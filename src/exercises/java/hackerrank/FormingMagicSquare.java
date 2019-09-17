@@ -40,7 +40,6 @@ public class FormingMagicSquare {
             }
             currentSum = 0;
         }
-        System.out.println(result);
         return result;
     }
 
