@@ -13,22 +13,24 @@ public class ClimbingTheLeaderboard {
     // Complete the climbingLeaderboard function below.
     static int[] climbingLeaderboard(int[] scores, int[] alice) {
         Arrays.sort(scores);
+        int[] scoresUnique = Arrays.stream(scores).distinct().toArray();
         int counter = 0;
+        int startPoint = 0;
         List<Integer> results = new ArrayList<>();
-        int lastValue = 0;
 
         for (int i = 0; i < alice.length; i++) {
-            for (int j =  scores.length-1; j >= 0 ; j--) {
-                if(alice[i] < scores[j]){
-                    if(lastValue != scores[j]){
+            for (int j = startPoint; j < scoresUnique.length ; j++) {
+                if(alice[i] >= scoresUnique[j]){
                         counter++;
-                    }
+                }else{
+                    startPoint = j;
+                    break;
                 }
-                lastValue = scores[j];
             }
-            results.add(counter+1);
-            counter = 0;
+            results.add(scoresUnique.length + 1 - counter);
+            counter = startPoint;
         }
+        System.out.println(results.toString());
         return results.stream().mapToInt(i -> i).toArray();
     }
 
