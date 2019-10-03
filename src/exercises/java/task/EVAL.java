@@ -2,35 +2,24 @@ package exercises.java.task;
 
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class EVAL {
 
     public static void main(String[] args) {
-        int[] result = calculateE(1000, new int[1001]);
+        int[] result = calculateE(2000, new int[2001]);
         System.out.println("2." + Arrays.toString(result).replace(", ", "").replace("]", "").substring(2));
     }
 
 
     public static int[] calculateE(int n, int[] d) {
         d[0] = 2;
-        for (int m = 4; (m * (Math.log(m) - 1.0) + 0.5 * Math.log(6.2831852 * m) <= (n + 1) * 2.30258509); m++) {
-            Map<Integer, Integer> coefMap = new HashMap<>();
+        int m = calculateM(n);
             int[] coef = new int[m + 2];
             Arrays.fill(coef, 1);
             for (int i = 1; i <= n; i++) {
-                String coefString = Arrays.toString(coef);
-                    if(!coefMap.containsKey(coefString.hashCode())){
-                        int carry = recursionCarry(0, m, coef, 0);
-                        coefMap.put(coefString.hashCode(),carry);
-                        d[i] = carry;
-                    }else{
-                        d[i] = coefMap.get(coefString.hashCode());
-                    }
+                int carry = recursionCarry(0, m, coef, 0);
+                d[i] = carry;
             }
-        }
-
         return d;
     }
 
@@ -43,4 +32,14 @@ public class EVAL {
         }
         return carry;
     }
+
+    public static int calculateM(int n){
+        int m =4;
+        while (m * (Math.log(m) - 1.0) + 0.5 * Math.log(6.2831852 * m) <= (n + 1) * 2.30258509){
+            m++;
+        }
+        return m;
+    }
+
+
 }
