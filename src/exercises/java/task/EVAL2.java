@@ -19,10 +19,35 @@ public class EVAL2 {
         public static void main(String[] args) {
 //        System.out.println(Arrays.toString(multiply(zTable, dTable)));
 //        System.out.println(Arrays.toString(divide(eTable, 40)));
-//        System.out.println(Arrays.toString(divide(dTable, 100)));
-            System.out.println(Arrays.toString(calculateE(220, 400)));
+        System.out.println(Arrays.toString(divide2(gTable, 100)));
+          //  System.out.println(Arrays.toString(calculateE(150, 100)));
 
         }
+
+    public static int[] divide2(int[] array, int precision) {
+        int[] result = new int[100];
+        Arrays.fill(result, 0);
+        double dividend = 0.00841819150951981971481891819818919817118542981717;
+        int zeroNumber = 0;
+
+        int longLength = array.length - zeroNumber;
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < longLength; i++) {
+
+            sb.append(array[i]);
+
+        }
+        int divisor = Integer.parseInt(sb.toString());
+        for (int i = zeroNumber; i < result.length; i++) {
+            if (dividend < divisor) {
+                dividend *= 10;
+            }
+            result[i] = (int) dividend / divisor;
+            dividend -= divisor * result[i];
+        }
+
+        return result;
+    }
 
 
         public static int[] multiply(int[] arrayA, int[] arrayB) {
