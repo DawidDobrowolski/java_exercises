@@ -10,7 +10,7 @@ public class DivideNumberInArray {
 
     public static void main(String[] args) {
 //        System.out.println(Arrays.toString(divideArrays(number1,2,120)));
-        System.out.println(Arrays.toString(calculateE(20,12)));
+        System.out.println(Arrays.toString(calculateE(205023,1000007)));
     }
 
     public static int[] divideArrays(int[] Array1, int divider, int precision) {
