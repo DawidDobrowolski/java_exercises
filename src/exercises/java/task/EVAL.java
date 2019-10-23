@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class EVAL {
 
     public static void main(String[] args) {
-        int[] result = calculateE(2000, new int[2001]);
+        int[] result = calculateE(50, new int[51]);
         System.out.println("2." + Arrays.toString(result).replace(", ", "").replace("]", "").substring(2));
     }
 
@@ -17,7 +17,7 @@ public class EVAL {
             int[] coef = new int[m + 2];
             Arrays.fill(coef, 1);
             for (int i = 1; i <= n; i++) {
-                int carry = recursionCarry(0, m, coef, 0);
+                int carry = calculateCarry(0, m, coef, 0);
                 d[i] = carry;
             }
         return d;
@@ -32,6 +32,16 @@ public class EVAL {
         }
         return carry;
     }
+
+    private static int calculateCarry(int carry, int m, int[] coef, int temp) {
+        for (int i = m; i >=2 ; i--) {
+            temp = coef[i] * 10 + carry;
+            carry = temp / i;
+            coef[i] = temp - carry * i;
+        }
+        return carry;
+    }
+
 
     public static int calculateM(int n){
         int m =4;
