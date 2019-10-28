@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class EVAL {
 
     public static void main(String[] args) {
-        int[] result = calculateE(1000000, new int[1000001]);
+        int[] result = calculateE(26200, new int[26201]);
         System.out.println("2." + Arrays.toString(result).replace(", ", "").replace("]", "").substring(2));
     }
 
